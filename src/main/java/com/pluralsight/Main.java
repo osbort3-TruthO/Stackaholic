@@ -16,9 +16,8 @@ public class Main {
         Scanner input = new Scanner(System.in);
         boolean running = true;
 
-        // Keep showing menu
         while (running) {
-            showHomeScreen(); // ✅ Call the method
+            showHomeScreen();
 
             System.out.print("\nEnter Your Choice: ");
             int choice = input.nextInt();
@@ -26,7 +25,31 @@ public class Main {
 
             if (choice == 1) {
                 System.out.println("\n🥪 Starting a new order...");
-                // TODO: call OrderScreen here later
+                boolean ordering = true;
+
+                while (ordering) {
+                    showOrderMenu();
+
+                    int orderChoice = input.nextInt();
+                    input.nextLine();
+
+                    if (orderChoice == 1) {
+                        System.out.println("You chose to add a sandwich \uD83E\uDD6A");
+                    } else if (orderChoice == 2) {
+                        System.out.println("You chose to add a drink!");
+                    } else if (orderChoice == 3) {
+                        System.out.println("You chose to add chips!");
+                    } else if (orderChoice == 4) {
+                        System.out.println("Checking Out...");
+                        ordering = false;
+                    } else if (orderChoice == 0) {
+                        System.out.println("Cancelling order and going back to home screen");
+                        ordering = false;
+                    } else {
+                        System.out.println("Invalid choice. Try again.");
+                    }
+                } // ✅ Close while(ordering)
+
             } else if (choice == 0) {
                 System.out.println("\n👋 Thank you for visiting Stackaholic!");
                 running = false;
@@ -35,8 +58,33 @@ public class Main {
             }
         }
 
-        input.close(); // Close scanner to avoid resource leak
+        input.close();
     }
-     public static void ShowHomeScreen;
 
+    // Home screen
+    public static void showHomeScreen() {
+        System.out.println();
+        System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
+        System.out.println(LETTUCE + "      STACKAHOLIC SANDWICHES        " + RESET);
+        System.out.println(TOMATO + "        The Art of Sandwiches       " + RESET);
+        System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
+        System.out.println();
+        System.out.println(CHEESE + "1) New Order" + RESET);
+        System.out.println(MEAT + "0) Exit" + RESET);
+    }
 
+    // Order menu
+    public static void showOrderMenu() {
+        System.out.println();
+        System.out.println("★・・・・・・★ NEW ORDER ★・・・・・・★");
+        System.out.println("1) Add Sandwich");
+        System.out.println("2) Add Drink");
+        System.out.println("3) Add Chips");
+        System.out.println("4) Checkout");
+        System.out.println("0) Cancel Order");
+        System.out.print("\nEnter your choice: ");
+    }
+
+    public static Sandwich addSandwich(Scanner input) {
+        System.out.println("\n-- Add Sandwich --");}
+}
