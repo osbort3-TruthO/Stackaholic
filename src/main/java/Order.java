@@ -13,4 +13,15 @@ public class Order {
         this.drinks = drinks;
     }
 
+    public  void addSandwich (Sandwich sandwich) {
+
+    }
+
+    public void addDrink (Drink drink) {
+
+    }
+
+    public void addChips (Chips chip){
+
+    }
 }
