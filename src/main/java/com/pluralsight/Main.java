@@ -112,7 +112,7 @@ public class Main {
         if (breadChoice ==2) breadType = "Wheat";
         else if (breadChoice == 3) breadType ="Rye";
         else if (breadChoice==4) breadType= "Rye";
-        
+
 
     }
 
