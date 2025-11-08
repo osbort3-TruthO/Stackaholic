@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Color codes
+    // Color codes I asked Chatgpt
     public static final String RESET = "\u001B[0m";
     public static final String BREAD = "\u001B[33m";   // yellow
     public static final String LETTUCE = "\u001B[92m"; // green
@@ -34,7 +34,7 @@ public class Main {
                     input.nextLine();
 
                     if (orderChoice == 1) {
-                        System.out.println("You chose to add a sandwich \uD83E\uDD6A");
+                        System.out.println("You chose to add a sandwich \uD83E\uDD6A");//chatGpt sandwich emoji code
                     } else if (orderChoice == 2) {
                         System.out.println("You chose to add a drink!");
                     } else if (orderChoice == 3) {
@@ -86,5 +86,18 @@ public class Main {
     }
 
     public static Sandwich addSandwich(Scanner input) {
-        System.out.println("\n-- Add Sandwich --");}
+        System.out.println("\n-- Add Sandwich --");
+        System.out.println("Choose sandwich size");
+        System.out.println("1) 4\"");
+        System.out.println("2) 8\"");
+        System.out.println("3) 12\"");
+        System.out.println("Enter Choice");
+        int sizeChoice = input.nextInt();
+        input.nextLine();
+
+        int size = 4;
+        if (sizeChoice == 2) size = 8;
+        else if (sizeChoice == 3) size = 12;
+    }
+
 }
