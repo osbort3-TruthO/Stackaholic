@@ -98,6 +98,18 @@ public class Main {
         int size = 4;
         if (sizeChoice == 2) size = 8;
         else if (sizeChoice == 3) size = 12;
+
+        //Choose bread
+        System.out.println("\n Choose bread type:");
+        System.out.println("1) White");
+        System.out.println("2) Wheat");
+        System.out.println("3) Rye");
+        System.out.println("4) Wrap");
+        int breadChoice = input.nextInt();
+        input.nextLine();
+
+        String breadType = Whit
+
     }
 
 }
