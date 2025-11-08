@@ -108,7 +108,11 @@ public class Main {
         int breadChoice = input.nextInt();
         input.nextLine();
 
-        String breadType = Whit
+        String breadType = "White";
+        if (breadChoice ==2) breadType = "Wheat";
+        else if (breadChoice == 3) breadType ="Rye";
+        else if (breadChoice==4) breadType= "Rye";
+        
 
     }
 
