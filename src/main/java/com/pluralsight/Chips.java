@@ -1,3 +1,5 @@
+package com.pluralsight;
+
 public class Chips {
 
     private String plainLays;
@@ -55,7 +57,7 @@ public class Chips {
 
     @Override
     public String toString() {
-        return "Chips{" +
+        return "com.pluralsight.Chips{" +
                 "plainLays='" + plainLays + '\'' +
                 ", hotCrunchyCurls='" + hotCrunchyCurls + '\'' +
                 ", bbq='" + bbq + '\'' +

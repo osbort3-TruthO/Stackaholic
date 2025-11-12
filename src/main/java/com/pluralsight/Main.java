@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Color codes
+    // --- Color codes ---
     public static final String RESET = "\u001B[0m";
     public static final String BREAD = "\u001B[33m";   // yellow
     public static final String LETTUCE = "\u001B[92m"; // green
@@ -50,7 +50,7 @@ public class Main {
                     } else {
                         System.out.println("Invalid choice. Try again.");
                     }
-                } // Close while(ordering)
+                }
 
             } else if (choice == 0) {
                 System.out.println("\n👋 Thank you for visiting Stackaholic!");
@@ -63,7 +63,7 @@ public class Main {
         input.close();
     }
 
-    // Home screen
+    // --- Home screen ---
     public static void showHomeScreen() {
         System.out.println();
         System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
@@ -71,23 +71,23 @@ public class Main {
         System.out.println(TOMATO + "        The Art of Sandwiches       " + RESET);
         System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
         System.out.println();
-        System.out.println(CHEESE + "1) New Order" + RESET);
+        System.out.println(CHEESE + "1) New com.pluralsight.Order" + RESET);
         System.out.println(MEAT + "0) Exit" + RESET);
     }
 
-    // Order menu
+    // --- com.pluralsight.Order menu ---
     public static void showOrderMenu() {
         System.out.println();
         System.out.println("★・・・・・・★ NEW ORDER ★・・・・・・★");
         System.out.println("1) Add Sandwich");
         System.out.println("2) Add Drink");
-        System.out.println("3) Add Chips");
+        System.out.println("3) Add com.pluralsight.Chips");
         System.out.println("4) Checkout");
-        System.out.println("0) Cancel Order");
+        System.out.println("0) Cancel com.pluralsight.Order");
         System.out.print("\nEnter your choice: ");
     }
 
-    // Add Sandwich method
+    // --- Add Sandwich Method ---
     public static Sandwich addSandwich(Scanner input) {
         System.out.println("\n-- Add Sandwich --");
 
@@ -133,25 +133,14 @@ public class Main {
             int meatChoice = input.nextInt();
             input.nextLine();
 
-            if (meatChoice == 0) {
-                addingMeats = false;
-            } else if (meatChoice == 1) {
-                meats.add("Ham");
-                System.out.println("Ham added!");
-            } else if (meatChoice == 2) {
-                meats.add("Steak");
-                System.out.println("Steak added!");
-            } else if (meatChoice == 3) {
-                meats.add("Salami");
-                System.out.println("Salami added!");
-            } else if (meatChoice == 4) {
-                meats.add("Chicken");
-                System.out.println("Chicken added!");
-            } else if (meatChoice == 5) {
-                meats.add("Bacon");
-                System.out.println("Bacon added!");
-            } else {
-                System.out.println("Invalid choice. Try again.");
+            switch (meatChoice) {
+                case 0 -> addingMeats = false;
+                case 1 -> meats.add("Ham");
+                case 2 -> meats.add("Steak");
+                case 3 -> meats.add("Salami");
+                case 4 -> meats.add("Chicken");
+                case 5 -> meats.add("Bacon");
+                default -> System.out.println("Invalid choice. Try again.");
             }
         }
 
@@ -169,22 +158,13 @@ public class Main {
             int cheeseChoice = input.nextInt();
             input.nextLine();
 
-            if (cheeseChoice == 0) {
-                addingCheeses = false;
-            } else if (cheeseChoice == 1) {
-                cheeses.add("American");
-                System.out.println("American cheese added!");
-            } else if (cheeseChoice == 2) {
-                cheeses.add("Provolone");
-                System.out.println("Provolone cheese added!");
-            } else if (cheeseChoice == 3) {
-                cheeses.add("Cheddar");
-                System.out.println("Cheddar cheese added!");
-            } else if (cheeseChoice == 4) {
-                cheeses.add("Swiss");
-                System.out.println("Swiss cheese added!");
-            } else {
-                System.out.println("Invalid choice. Try again.");
+            switch (cheeseChoice) {
+                case 0 -> addingCheeses = false;
+                case 1 -> cheeses.add("American");
+                case 2 -> cheeses.add("Provolone");
+                case 3 -> cheeses.add("Cheddar");
+                case 4 -> cheeses.add("Swiss");
+                default -> System.out.println("Invalid choice. Try again.");
             }
         }
 
@@ -207,22 +187,89 @@ public class Main {
             int toppingChoice = input.nextInt();
             input.nextLine();
 
-            if (toppingChoice == 0) {
-                addingToppings = false;
-            } else if (toppingChoice == 1) toppings.add("Lettuce");
-            else if (toppingChoice == 2) toppings.add("Peppers");
-            else if (toppingChoice == 3) toppings.add("Onions");
-            else if (toppingChoice == 4) toppings.add("Tomatoes");
-            else if (toppingChoice == 5) toppings.add("Jalapeños");
-            else if (toppingChoice == 6) toppings.add("Cucumbers");
-            else if (toppingChoice == 7) toppings.add("Pickles");
-            else if (toppingChoice == 8) toppings.add("Guacamole");
-            else if (toppingChoice == 9) toppings.add("Mushrooms");
-            else System.out.println("Invalid choice. Try again.");
+            switch (toppingChoice) {
+                case 0 -> addingToppings = false;
+                case 1 -> toppings.add("Lettuce");
+                case 2 -> toppings.add("Peppers");
+                case 3 -> toppings.add("Onions");
+                case 4 -> toppings.add("Tomatoes");
+                case 5 -> toppings.add("Jalapeños");
+                case 6 -> toppings.add("Cucumbers");
+                case 7 -> toppings.add("Pickles");
+                case 8 -> toppings.add("Guacamole");
+                case 9 -> toppings.add("Mushrooms");
+                default -> System.out.println("Invalid choice. Try again.");
+            }
         }
 
-        // Create the sandwich object
-        Sandwich sandwich = new Sandwich(size, breadType, meats, toppings, cheeses, true);
-        return sandwich;
+        // Sauces
+        ArrayList<String> sauces = new ArrayList<>();
+        System.out.println("\nChoose sauces (type 0 when done):");
+        System.out.println("1) Mayo");
+        System.out.println("2) Mustard");
+        System.out.println("3) Ketchup");
+        System.out.println("4) Ranch");
+        System.out.println("5) Thousand Islands");
+        System.out.println("6) Vinaigrette");
+
+        boolean addingSauces = true;
+        while (addingSauces) {
+            System.out.print("Enter number or 0 to finish: ");
+            int sauceChoice = input.nextInt();
+            input.nextLine();
+
+            switch (sauceChoice) {
+                case 0 -> addingSauces = false;
+                case 1 -> sauces.add("Mayo");
+                case 2 -> sauces.add("Mustard");
+                case 3 -> sauces.add("Ketchup");
+                case 4 -> sauces.add("Ranch");
+                case 5 -> sauces.add("Thousand Islands");
+                case 6 -> sauces.add("Vinaigrette");
+                default -> System.out.println("Invalid choice. Try again.");
+            }
+        }
+
+        // Toasted
+        System.out.print("\nWould you like it toasted? (yes/no): ");
+        boolean toasted = input.nextLine().equalsIgnoreCase("yes");
+
+        // Create and return sandwich
+        return new Sandwich(size, breadType, meats, cheeses, toppings, sauces, toasted);
     }
+    public static Drink addDrink(Scanner input) {
+        System.out.println("\n-- Add Drink --");
+
+        System.out.println("Choose size:");
+        System.out.println("1) Small ($2.00)");
+        System.out.println("2) Medium ($2.50)");
+        System.out.println("3) Large ($3.00)");
+        System.out.print("Enter choice: ");
+        int sizeChoice = input.nextInt();
+        input.nextLine();
+
+        String size = "Small";
+        if (sizeChoice == 2) size = "Medium";
+        else if (sizeChoice == 3) size = "Large";
+
+        System.out.println("Choose flavor:");
+        System.out.println("1) Coke");
+        System.out.println("2) Sprite");
+        System.out.println("3) Lemonade");
+        System.out.println("4) Iced Tea");
+        System.out.print("Enter choice: ");
+        int flavorChoice = input.nextInt();
+        input.nextLine();
+
+        String flavor = "Coke";
+        if (flavorChoice == 2) flavor = "Sprite";
+        else if (flavorChoice == 3) flavor = "Lemonade";
+        else if (flavorChoice == 4) flavor = "Iced Tea";
+
+        Drink drink = new Drink(size, flavor);
+        System.out.println("You added: " + drink);
+
+        return drink;
+    }
+
 }
