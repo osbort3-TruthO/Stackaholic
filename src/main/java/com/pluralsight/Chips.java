@@ -2,49 +2,22 @@ package com.pluralsight;
 
 public class Chips {
 
-    private String plainLays;
-    private String hotCrunchyCurls;
-    private String bbq;
-    private String doritos;
-    private double price  = 1.50;
+    private String type; // e.g., "BBQ", "Plain Lays", etc.
+    private double price;
 
-    public Chips(String plainLays, String hotCrunchyCurls, String bbq, String doritos) {
-        this.plainLays = plainLays;
-        this.hotCrunchyCurls = hotCrunchyCurls;
-        this.bbq = bbq;
-        this.doritos = doritos;
+    // Constructor
+    public Chips(String type, double price) {
+        this.type = type;
+        this.price = price;
     }
 
-    public String getPlainLays() {
-        return plainLays;
+    // Getters and setters
+    public String getType() {
+        return type;
     }
 
-    public void setPlainLays(String plainLays) {
-        this.plainLays = plainLays;
-    }
-
-    public String getHotCrunchyCurls() {
-        return hotCrunchyCurls;
-    }
-
-    public void setHotCrunchyCurls(String hotCrunchyCurls) {
-        this.hotCrunchyCurls = hotCrunchyCurls;
-    }
-
-    public String getBbq() {
-        return bbq;
-    }
-
-    public void setBbq(String bbq) {
-        this.bbq = bbq;
-    }
-
-    public String getDoritos() {
-        return doritos;
-    }
-
-    public void setDoritos(String doritos) {
-        this.doritos = doritos;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public double getPrice() {
@@ -57,12 +30,6 @@ public class Chips {
 
     @Override
     public String toString() {
-        return "com.pluralsight.Chips{" +
-                "plainLays='" + plainLays + '\'' +
-                ", hotCrunchyCurls='" + hotCrunchyCurls + '\'' +
-                ", bbq='" + bbq + '\'' +
-                ", doritos='" + doritos + '\'' +
-                ", price=" + price +
-                '}';
+        return type + " $" + price;
     }
 }

@@ -1,27 +1,63 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Order {
-    private ArrayList<Sandwich> sandwiches;
-    private ArrayList<Chips> chips;
-    private ArrayList<Drink> drinks;
+    private Sandwich sandwich;
+    private Drink drink;
+    private Chips chips;
 
-    public Order(ArrayList<Sandwich> sandwiches, ArrayList<Chips> chips, ArrayList<Drink> drinks) {
-        this.sandwiches = sandwiches;
-        this.chips = chips;
-        this.drinks = drinks;
+    public void addSandwich(Sandwich sandwich) {
+        this.sandwich = sandwich;
     }
 
-    public  void addSandwich (Sandwich sandwich) {
+    public void addDrink() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Would you like a drink? (yes/no)");
+        String choice = scanner.nextLine();
+        if (choice.equalsIgnoreCase("yes")) {
+            System.out.println("Enter drink flavor (cola, lemonade, tea):");
+            String flavor = scanner.nextLine();
+
+            System.out.println("Enter drink size (small, medium, large):");
+            String size = scanner.nextLine();
+
+            double price = 0;
+            if (size.equalsIgnoreCase("small")) price = 2.00;
+            else if (size.equalsIgnoreCase("medium")) price = 2.50;
+            else if (size.equalsIgnoreCase("large")) price = 3.00;
+
+            drink = new Drink(flavor, size, price);
+        }
     }
 
-    public void addDrink (Drink drink) {
+    public void addChips() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Would you like chips? (yes/no)");
+        String choice = scanner.nextLine();
+        if (choice.equalsIgnoreCase("yes")) {
+            System.out.println("Choose chip flavor: Plain Lays, BBQ, Hot Crunchy Curls, Doritos");
+            String flavor = scanner.nextLine();
+
+            chips = new Chips(flavor, 1.50);
+        }
     }
 
-    public void addChips (Chips chip){
+    public void printReceipt() {
+        System.out.println("\n----- Your Order -----");
 
+        if (sandwich != null) System.out.println(sandwich);
+        if (drink != null) System.out.println("Drink: " + drink);
+        if (chips != null) System.out.println("Chips: " + chips);
+
+        double total = 0;
+        if (sandwich != null) total += sandwich.getPrice();
+        if (drink != null) total += drink.getPrice();
+        if (chips != null) total += chips.getPrice();
+
+        System.out.println("----------------------");
+        System.out.println("Total: $" + total);
     }
 }
