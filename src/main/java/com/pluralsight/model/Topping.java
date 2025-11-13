@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
 public class Topping {
     private String lettuce;
@@ -97,7 +97,7 @@ public class Topping {
 
     @Override
     public String toString() {
-        return "com.pluralsight.Topping{" +
+        return "com.pluralsight.model.Topping{" +
                 "lettuce='" + lettuce + '\'' +
                 ", tomato='" + tomato + '\'' +
                 ", peppers='" + peppers + '\'' +

@@ -1,4 +1,8 @@
-package com.pluralsight;
+package com.pluralsight.service;
+
+import com.pluralsight.model.Chips;
+import com.pluralsight.model.Drink;
+import com.pluralsight.model.Sandwich;
 
 import java.util.Scanner;
 

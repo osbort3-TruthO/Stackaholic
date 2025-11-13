@@ -1,4 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.ui;
+
+import com.pluralsight.service.Order;
+import com.pluralsight.model.Sandwich;
 
 import java.util.ArrayList;
 import java.util.Scanner;
