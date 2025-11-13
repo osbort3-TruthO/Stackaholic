@@ -73,7 +73,6 @@ public class Main {
         input.close();
     }
 
-    // --- Home Screen ---
     public static void showHomeScreen() {
         System.out.println();
         System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
@@ -84,6 +83,7 @@ public class Main {
         System.out.println(CHEESE + "1) New Order" + RESET);
         System.out.println(MEAT + "0) Exit" + RESET);
     }
+
 
     // --- Order Menu ---
     public static void showOrderMenu() {
