@@ -45,19 +45,27 @@ public class Order {
         }
     }
 
+    // --- Print receipt ---
     public void printReceipt() {
-        System.out.println("\n----- Your Order -----");
+        System.out.println("----- Your Order -----");
 
-        if (sandwich != null) System.out.println(sandwich);
-        if (drink != null) System.out.println("Drink: " + drink);
-        if (chips != null) System.out.println("Chips: " + chips);
+        if (sandwich != null)
+            System.out.println(sandwich);
 
-        double total = 0;
+        if (drink != null)
+            System.out.println(drink); // toString() handles formatting now
+
+        if (chips != null)
+            System.out.println(chips); // toString() handles formatting now
+
+        double total = 0.0;
         if (sandwich != null) total += sandwich.getPrice();
         if (drink != null) total += drink.getPrice();
         if (chips != null) total += chips.getPrice();
 
         System.out.println("----------------------");
-        System.out.println("Total: $" + total);
+        System.out.printf("Total: $%.2f%n", total); // 👈 Always shows two decimals
     }
+
 }
+
