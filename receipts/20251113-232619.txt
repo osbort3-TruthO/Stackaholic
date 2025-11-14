@@ -1,0 +1,11 @@
+----- Your Order -----
+Sandwich: 12 inch, wrap
+Meats: [chicken]
+Cheeses: [swiss]
+Toppings: [lettuce, peppers, onions, pickles]
+Sauces: [mayo, ranch]
+Toasted: true
+Price: $18.00
+Chips: plains $1.50
+----------------------
+Total: $19.50

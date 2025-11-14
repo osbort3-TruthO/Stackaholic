@@ -1,0 +1,10 @@
+----- Your Order -----
+Sandwich: 8 inch, wrap
+Meats: [ham, steak, salmi]
+Cheeses: [american, swiss]
+Toppings: [lettuce, onions, cucmbers, pickles]
+Sauces: [mayo.ranch]
+Toasted: true
+Price: $12.00
+----------------------
+Total: $12.00

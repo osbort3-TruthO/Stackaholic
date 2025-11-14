@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // --- Color codes for UI ---
+    // Colors help from chatgpt
     public static final String RESET = "\u001B[0m";
     public static final String BREAD = "\u001B[33m";   // yellow
     public static final String LETTUCE = "\u001B[92m"; // green
@@ -68,7 +68,7 @@ public class Main {
         input.close();
     }
 
-    // --- Home Screen ---
+    //  homescreen
     public static void showHomeScreen() {
         System.out.println();
         System.out.println(BREAD + "★・・・・・・★★・・・・・・★★・・・・・・★" + RESET);
@@ -80,7 +80,7 @@ public class Main {
         System.out.println(MEAT + "0) Exit" + RESET);
     }
 
-    // --- Order Menu ---
+    // order menu
     public static void showOrderMenu() {
         System.out.println();
         System.out.println("★・・・・・・★ NEW ORDER ★・・・・・・★");
@@ -90,9 +90,10 @@ public class Main {
         System.out.println("4) Checkout");
         System.out.println("0) Cancel Order");
         System.out.print("\nEnter your choice: ");
+        System.out.println("\n★・・・・・・★★・・・・・・★★・・・・・・★");
     }
 
-    // --- Sandwich Builder ---
+    //
     public static Sandwich buildSandwich(Scanner input) {
         System.out.println("\n-- Add Sandwich --");
 
@@ -107,13 +108,13 @@ public class Main {
 
         // Meats
         ArrayList<String> meats = new ArrayList<>();
-        System.out.println("Enter meats (Ham, Steak, Salami, Chicken, Bacon) separated by commas:");
+        System.out.println("Enter meats (Ham, Steak, Salami, Chicken, Bacon)");
         String[] meatArr = input.nextLine().split(",");
         for (String m : meatArr) meats.add(m.trim());
 
         // Cheeses
         ArrayList<String> cheeses = new ArrayList<>();
-        System.out.println("Enter cheeses (American, Provolone, Cheddar, Swiss) separated by commas:");
+        System.out.println("Enter cheeses (American, Provolone, Cheddar, Swiss)");
         String[] cheeseArr = input.nextLine().split(",");
         for (String c : cheeseArr) cheeses.add(c.trim());
 
