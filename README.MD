@@ -1,15 +1,15 @@
-**Stackaholic** **Sandwiches**
+# **Stackaholic** **Sandwiches**
 
 ◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦
 
-**_Overview_**
+## **_Overview_**
 
 Stackaholic Sandwiches is a fun, console-based Java application that lets users build custom sandwiches, add drinks and chips, and see a colorful order summary. When an order is completed, it automatically saves a receipt in a receipts folder with a timestamped filename.
 This project demonstrates Java classes, objects, user input, console UI with color, and file handling.
 
-**_Features_**
+# **_Features_**
 
-**Build custom sandwiches:**
+## **Build custom sandwiches:**
 
 ◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦
 * Size: 4", 8", or 12"
@@ -29,6 +29,10 @@ This project demonstrates Java classes, objects, user input, console UI with col
 * Fun, colorful console UI
 
 ◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦◦•●◉✿✿◉●•◦
-**Favorite Part of code:** 
 
+#    **Interesting Piece of code:** 
+
+* Creates a folder automatically if it doesn’t exist
+* Saves receipts as .txt files
+* Uses date-time formatting to generate unique filenames
 
