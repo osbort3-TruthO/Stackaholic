@@ -1,75 +1,113 @@
 package com.pluralsight.service;
 
-import com.pluralsight.model.Chips;
-import com.pluralsight.model.Drink;
 import com.pluralsight.model.Sandwich;
+import com.pluralsight.model.Drink;
+import com.pluralsight.model.Chips;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Order {
+
     private Sandwich sandwich;
     private Drink drink;
     private Chips chips;
 
+    // --- Add sandwich to order ---
     public void addSandwich(Sandwich sandwich) {
         this.sandwich = sandwich;
     }
 
+    // --- Add drink ---
     public void addDrink() {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Would you like a drink? (yes/no)");
+        System.out.println("\nWould you like a drink? (yes/no)");
         String choice = scanner.nextLine();
+
         if (choice.equalsIgnoreCase("yes")) {
-            System.out.println("Enter drink flavor (cola, lemonade, tea):");
+            System.out.print("Enter drink flavor (cola, lemonade, water): ");
             String flavor = scanner.nextLine();
 
-            System.out.println("Enter drink size (small, medium, large):");
+            System.out.print("Enter size (small, medium, large): ");
             String size = scanner.nextLine();
 
-            double price = 0;
-            if (size.equalsIgnoreCase("small")) price = 2.00;
-            else if (size.equalsIgnoreCase("medium")) price = 2.50;
-            else if (size.equalsIgnoreCase("large")) price = 3.00;
+            double price = switch (size.toLowerCase()) {
+                case "medium" -> 2.50;
+                case "large" -> 3.00;
+                default -> 2.00;
+            };
 
-            drink = new Drink(flavor, size, price);
+            drink = new Drink(size, flavor, price);
         }
     }
 
+    // --- Add chips ---
     public void addChips() {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Would you like chips? (yes/no)");
+        System.out.println("\nWould you like chips? (yes/no)");
         String choice = scanner.nextLine();
-        if (choice.equalsIgnoreCase("yes")) {
-            System.out.println("Choose chip flavor: Plain Lays, BBQ, Hot Crunchy Curls, Doritos");
-            String flavor = scanner.nextLine();
 
-            chips = new Chips(flavor, 1.50);
+        if (choice.equalsIgnoreCase("yes")) {
+            System.out.print("Enter chip type (Plain, BBQ, Doritos, Hot Crunchy Curls): ");
+            String type = scanner.nextLine();
+            chips = new Chips(type, 1.50);
         }
     }
 
-    // --- Print receipt ---
+    // --- Print receipt to console ---
     public void printReceipt() {
-        System.out.println("----- Your Order -----");
+        System.out.println("\n----- Your Order -----");
 
-        if (sandwich != null)
-            System.out.println(sandwich);
-
+        if (sandwich != null) System.out.println(sandwich);
         if (drink != null)
-            System.out.println(drink); // toString() handles formatting now
-
+            System.out.printf("Drink: %s (%s) $%.2f\n", drink.getFlavor(), drink.getSize(), drink.getPrice());
         if (chips != null)
-            System.out.println(chips); // toString() handles formatting now
+            System.out.printf("Chips: %s $%.2f\n", chips.getType(), chips.getPrice());
 
-        double total = 0.0;
+        double total = 0;
         if (sandwich != null) total += sandwich.getPrice();
         if (drink != null) total += drink.getPrice();
         if (chips != null) total += chips.getPrice();
 
-        System.out.println("----------------------");
-        System.out.printf("Total: $%.2f%n", total); // 👈 Always shows two decimals
+        System.out.printf("----------------------\nTotal: $%.2f\n", total);
     }
 
-}
+    // --- Save receipt to file ---
+    public void saveReceiptToFile() {
+        try {
+            File folder = new File("receipts");
+            if (!folder.exists()) folder.mkdir();
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+            String fileName = "receipts/" + LocalDateTime.now().format(formatter) + ".txt";
+
+            FileWriter writer = new FileWriter(fileName);
+            writer.write("----- Your Order -----\n");
+
+            if (sandwich != null) writer.write(sandwich + "\n");
+            if (drink != null)
+                writer.write(String.format("Drink: %s (%s) $%.2f\n",
+                        drink.getFlavor(), drink.getSize(), drink.getPrice()));
+            if (chips != null)
+                writer.write(String.format("Chips: %s $%.2f\n",
+                        chips.getType(), chips.getPrice()));
+
+            double total = 0;
+            if (sandwich != null) total += sandwich.getPrice();
+            if (drink != null) total += drink.getPrice();
+            if (chips != null) total += chips.getPrice();
+
+            writer.write(String.format("----------------------\nTotal: $%.2f\n", total));
+            writer.close();
+
+            System.out.println("✔ Receipt saved to " + fileName);
+
+        } catch (IOException e) {
+            System.out.println("❌ Error saving receipt: " + e.getMessage());
+        }
+    }
+}

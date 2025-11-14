@@ -1,8 +1,8 @@
 package com.pluralsight.model;
 
 public class Drink {
-    private String size;
-    private String flavor;
+    private String size; // small, medium, large
+    private String flavor; // cola, lemonade, etc
     private double price;
 
     public Drink(String size, String flavor, double price) {
@@ -11,33 +11,16 @@ public class Drink {
         this.price = price;
     }
 
-    public String getSize() {
-        return size;
-    }
+    public String getSize() { return size; }
+    public String getFlavor() { return flavor; }
+    public double getPrice() { return price; }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getFlavor() {
-        return flavor;
-    }
-
-    public void setFlavor(String flavor) {
-        this.flavor = flavor;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    // 👇 Add this method to customize how Drink prints
     @Override
     public String toString() {
-        return "Drink: " + flavor + " (" + size + ") - $" + price;
+        return "Drink{" +
+                "size='" + size + '\'' +
+                ", flavor='" + flavor + '\'' +
+                ", price=$" + String.format("%.2f", price) +
+                '}';
     }
 }
