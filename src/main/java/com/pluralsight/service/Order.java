@@ -45,7 +45,7 @@ public class Order {
         }
     }
 
-    // --- Add chips ---
+    // Add chips
     public void addChips() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWould you like chips? (yes/no)");
@@ -58,7 +58,7 @@ public class Order {
         }
     }
 
-    // --- Print receipt to console ---
+    //Print receipt
     public void printReceipt() {
         System.out.println("\n----- Your Order -----");
 
@@ -76,7 +76,7 @@ public class Order {
         System.out.printf("----------------------\nTotal: $%.2f\n", total);
     }
 
-    // --- Save receipt to file ---
+    // my receipt
     public void saveReceiptToFile() {
         try {
             File folder = new File("receipts");
