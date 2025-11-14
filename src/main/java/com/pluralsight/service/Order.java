@@ -17,12 +17,12 @@ public class Order {
     private Drink drink;
     private Chips chips;
 
-    // --- Add sandwich to order ---
+    //Add sandwich to order
     public void addSandwich(Sandwich sandwich) {
         this.sandwich = sandwich;
     }
 
-    // --- Add drink ---
+    // Add drink
     public void addDrink() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWould you like a drink? (yes/no)");
